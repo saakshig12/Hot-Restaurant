@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hot Resturant</title>
+    <title>Hot Restaurant</title>
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,43 +15,88 @@
 <body>
 
     <div class="container">
-        <div class="jumbotron" style="text-align: center">
-            <h1>Hot Resturant</h1>
-            <h3>We only have 5 tables! Book your seat before they are all gone!</h3>
-            <hr>
-            <button type="submit" class="btn btn-primary btn-lg" id="search-btn"><span class="fa fa-search"></span>
-View Tables</button>
-            <button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Make Reservation</button>
+        <div class="container">
+            <div class="jumbotron" style="text-align: center">
+                <h1>Hot Resturant</h1>
+                <h3>We only have 5 tables! Book your seat before they are all gone!</h3>
+                <hr>
+                <a href="./landing.html">
+                <button type="submit" class="btn btn-primary btn-lg" id="search-btn" ><span class="fa fa-search"></span>
+                    View Tables</button></a>
+                    <a href="./home.html">
+                <button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Make Reservation</button></a>
+            </div>
         </div>
-        </div>
-    </div>
 
-    <script type="text/javascript">
-        // QUESTION: What is this code doing?
-        $("#search-btn").on("click", function () {
-            var searchedCharacter = $("#character-search").val().trim();
+        <div class="row">
 
-            // Using a RegEx Pattern to remove spaces from searchedCharacter
-            // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-            searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Current Reservations</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul id="tablelist" class="list-group">
+                            <li class="list-group-item mt-4">
+                                <h2>Table #1</h2>
+                                <hr>
+                                <h2 id="name">Name:</h2>
+                                <h2 id="phone">Phone Number:</h2>
+                                <h2 id="email">Email:</h2>
+                                <h2 id="people">Number of People:</h2>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-            // QUESTION: What does $.get do? What are the parameters it is expecting?
-            $.get("/api/characters/" + searchedCharacter, function (data) {
-                console.log(data);
-                if (data) {
-                    $("#stats").show();
-                    $("#name").text(data.name);
-                    $("#role").text(data.role);
-                    $("#age").text(data.age);
-                    $("#force-points").text(data.forcePoints);
-                }
-                else {
-                    $("#name").text("The force is not strong with this one. Your character was not found.");
-                    $("#stats").hide();
-                }
-            });
-        });
-    </script>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Waitlist</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul id="tablelist" class="list-group">
+                                <li class="list-group-item mt-4">
+                                    <h2>Table #1</h2>
+                                    <hr>
+                                    <h2 id="name">Name:</h2>
+                                    <h2 id="phone">Phone Number:</h2>
+                                    <h2 id="email">Email:</h2>
+                                    <h2 id="people">Number of People:</h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- <script type="text/javascript">
+                // QUESTION: What is this code doing?
+                $("#search-btn").on("click", function () {
+                    var searchedCharacter = $("#character-search").val().trim();
+
+                    // Using a RegEx Pattern to remove spaces from searchedCharacter
+                    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+                    searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+
+                    // QUESTION: What does $.get do? What are the parameters it is expecting?
+                    $.get("/api/characters/" + searchedCharacter, function (data) {
+                        console.log(data);
+                        if (data) {
+                            $("#stats").show();
+                            $("#name").text(data.name);
+                            $("#role").text(data.role);
+                            $("#age").text(data.age);
+                            $("#force-points").text(data.forcePoints);
+                        }
+                        else {
+                            $("#name").text("The force is not strong with this one. Your character was not found.");
+                            $("#stats").hide();
+                        }
+                    });
+                });
+            </script> -->
 
 </body>
 

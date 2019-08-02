@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+
 // Data
 var openTables = [
   {
@@ -15,7 +16,7 @@ var openTables = [
     name: "The Smiths",
     phone: "phone number",
     email: "email"
-  },
+  }
 
 ];
 
@@ -30,8 +31,10 @@ app.get("/api/makeReservations", function (req, res) {
 });
 
 
+
 // Create New Tables - takes in JSON input
 app.post("/api/openTables", function (req, res) {
+
   var waitingListArr = [];
   var newCustomer = req.body;
   if (openTables.length < 5) {
@@ -53,4 +56,11 @@ app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });
 
+app.listen(PORT, function () {
+console.log("App listening on PORT " + PORT);
 
+});
+
+app.listen(PORT, function () {
+ console.log("App listening on PORT " + PORT);
+});
