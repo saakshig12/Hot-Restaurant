@@ -11,6 +11,7 @@ app.use(express.json());
 
 // Data
 var openTables = [
+
 {
   routeName: "smithfamily",
   name: "The Smiths",
@@ -18,22 +19,28 @@ var openTables = [
   email: "email"
 },
 
+
 ];
 
 // Routes
 app.get("/", function (req, res) {
+
 res.send("Welcome to Mos Eisley Casino!");
+
 });
 
 // Displays all characters
 app.get("/api/makeReservations", function (req, res) {
+
 return res.json(openTables);
+
 });
 
 
 
 // Create New Tables - takes in JSON input
 app.post("/api/openTables", function (req, res) {
+
 var waitingListArr = [];
 var newCustomer = req.body;
 if (openTables.length < 5) {
@@ -53,6 +60,9 @@ res.json(newCustomer);
 
 app.listen(PORT, function () {
 console.log("App listening on PORT " + PORT);
+
 });
 
-
+app.listen(PORT, function () {
+ console.log("App listening on PORT " + PORT);
+});
